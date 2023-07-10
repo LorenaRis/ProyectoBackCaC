@@ -699,3 +699,6 @@ select {
   margin:10px auto ;
   margin-top: 3em;
 }
+textarea{
+  font-size: medium;
+}
