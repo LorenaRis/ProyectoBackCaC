@@ -19,14 +19,14 @@ ma=Marshmallow(app)   #crea el objeto ma de de la clase Marshmallow
 #definimos la tabla
 class Producto(db.Model):
     id=db.Column(db.Integer, primary_key=True)
-    nombre=db.Column(db.String(100))
-    precio=db.Column(db.Integer)
-    stock=db.Column(db.Integer)
+    nombre=db.Column(db.String(50))
+    descripcion=db.Column(db.String(500))
+    categoria=db.Column(db.String(20))
     imagen=db.Column(db.String(400))
-    def __init__(self,nombre,precio,stock,imagen):
+    def __init__(self,nombre,descripcion,categoria,imagen):
         self.nombre = nombre
-        self.precio = precio
-        self.stock = stock
+        self.descripcion = descripcion
+        self.categoria = categoria
         self.imagen = imagen
 
     #Si hay mas tablas para crear las definimos aca
@@ -36,7 +36,7 @@ with app.app_context():
 
 class ProductoSchema(ma.Schema):
     class Meta:
-        fields=('id','nombre','precio','stock','imagen')
+        fields=('id','nombre','descripcion','categoria','imagen')
     
 producto_schema=ProductoSchema() #El objeto para traer un producto
 productos_schema=ProductoSchema(many=True) #Trae muchos registro de producto
@@ -78,10 +78,10 @@ def delete_producto(id):
 def create_producto():
     #print(request.json)  # request.json contiene el json que envio el cliente
     nombre=request.json['nombre']
-    precio=request.json['precio']
-    stock=request.json['stock']
+    descripcion=request.json['descripcion']
+    categoria=request.json['categoria']
     imagen=request.json['imagen']
-    new_producto=Producto(nombre,precio,stock,imagen)
+    new_producto=Producto(nombre,descripcion,categoria,imagen)
     db.session.add(new_producto)
     db.session.commit()
     return producto_schema.jsonify(new_producto)
@@ -92,8 +92,8 @@ def update_producto(id):
     producto=Producto.query.get(id)
  
     producto.nombre=request.json['nombre']
-    producto.precio=request.json['precio']
-    producto.stock=request.json['stock']
+    producto.descripcion=request.json['descripcion']
+    producto.categoria=request.json['categoria']
     producto.imagen=request.json['imagen']
 
 
