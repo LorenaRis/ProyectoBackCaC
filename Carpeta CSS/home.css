@@ -89,13 +89,6 @@ nav a {
   }
 }
 
-.masterhead {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-top: 4em;
-}
-
 /* logo y nombre del proyecto */
 #logotipo {
   width: 5em;
@@ -441,7 +434,7 @@ nav a {
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-top: 2em;
+  margin-top: 4em;
 }
 
 /* logo y nombre del proyecto */
@@ -697,4 +690,12 @@ select {
 }
 .table-bordered {
   border-color: red;
+}
+#form_alta{
+  width: 400px; 
+  padding: 20px;
+  background-color: #54343f;
+  color:#f9df94;
+  margin:10px auto ;
+  margin-top: 3em;
 }

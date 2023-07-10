@@ -41,8 +41,8 @@ const { createApp } = Vue
         grabar(){
             let producto = {
                 nombre:this.nombre,
-                precio: this.precio,
-                stock: this.stock,
+                descripcion: this.descripcion,
+                categoria: this.categoria,
                 imagen:this.imagen
             }
             var options = {

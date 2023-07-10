@@ -8,8 +8,8 @@ const { createApp } = Vue
         id:0,
         nombre:"",
         imagen:"",
-        stock:0,
-        precio:0,
+        descripcion:"",
+        categoria:"",
         url:'http://localhost:5000/productos/'+id,
        }  
     },
@@ -22,8 +22,8 @@ const { createApp } = Vue
                     this.id=data.id
                     this.nombre = data.nombre;
                     this.imagen=data.imagen
-                    this.stock=data.stock
-                    this.precio=data.precio                    
+                    this.categoria=data.categoria
+                    this.descripcion=data.descripcion                    
                 })
                 .catch(err => {
                     console.error(err);
@@ -33,8 +33,8 @@ const { createApp } = Vue
         modificar() {
             let producto = {
                 nombre:this.nombre,
-                precio: this.precio,
-                stock: this.stock,
+                descripcion: this.descripcion,
+                categoria: this.categoria,
                 imagen:this.imagen
             }
             var options = {
